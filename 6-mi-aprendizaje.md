@@ -1,3 +1,7 @@
-# COMPLETAR  
-Comparando sus conocimientos antes de hacer la práctica con sus conocimientos después de hacer la tarea, explicar los principales aprendizajes logrados para beneficio de su formación profesional.  
-Si solucionó un problema presentado o utilizó otros comandos que no se mencionan al realizar la práctica también se debe documentar.
+
+## MI APRENDIZAJE
+
+Antes asumía que todo el trabajo se perdía al utilizar comandos de destrucción como "docker rm". Ahora entiendo que se puede cambiar, actualzar o destruir, pero los datos permanecen. Más allá de la definición, pude comprobar que un contenedor de base de datos es inútil para producción sin un volumen. Al eliminar el contenedor de PostgreSQL y crear uno nuevo conectado al mismo volumen, la aplicación (Drupal/pgAdmin) siguió funcionando como si nada hubiera pasado. Esto me enseñó que la aplicación real no vive en el contenedor, sino en la combinación del contenedor (lógica) y el volumen (estado).
+
+En esta práctica no solo aprendí sintaxis, sino el caso de uso. Entendí que se debe usar Bind Mounts cuando se quiere control total sobre los archivos desde mi máquina y esto es beneficioso para inyectar código fuente o archivos de configuración en un contenedor. En cambio, usaré volúmenes nombrados cuando quiera que Docker gestione los datos de forma segura y eficiente, sin que tenga que preocuparme por la ruta física en el host. Los volúmenes no son solo una "bandera" (-v), sino objetos de primer nivel en Docker, al igual que las imágenes y los contenedores. Tienen sus propios comandos (docker volume ls, docker volume prune) y existen independientemente de cualquier contenedor. Esto introduce la responsabilidad de gestionar "datos huérfanos" (dangling volumes) para no malgastar espacio en disco.
+
